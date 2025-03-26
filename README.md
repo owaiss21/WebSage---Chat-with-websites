@@ -1,37 +1,34 @@
-# WebSage - Chat with Websites
+# WebSage: Website Conversation Tool
 
-This system enables users to chat with website content by leveraging Retrieval Augmented Generation (RAG). OpenAI embeddings convert website text into vectors, stored in ChromaDB, for efficient semantic retrieval. The retrieved information is then used to generate relevant responses.
+WebSage allows users to interact with website content through a conversational interface. It uses Retrieval Augmented Generation (RAG) to provide answers derived directly from the website's information.
 
-**Technical Details:**
+**How it Works:**
 
-* **Embedding Generation:**
-    * Utilizes OpenAI's model to transform website text into high-dimensional vector representations. These embeddings capture the semantic meaning of the text, allowing for similarity searches.
+* **Semantic Indexing:**
+    * Website text is converted into vector representations using OpenAI's embedding models. These vectors capture the meaning of the text, enabling efficient semantic search.
 * **Vector Database:**
-    * Employs ChromaDB as a vector store for efficient storage and retrieval of generated embeddings. ChromaDB's indexing capabilities enable rapid k-nearest neighbor (k-NN) searches.
-* **Retrieval Augmented Generation (RAG):**
-    * When a user submits a query, the system first generates an embedding for the query using OpenAI's embedding model.
-    * This query embedding is then used to perform a similarity search within ChromaDB, retrieving the most relevant website text chunks.
-    * The retrieved text chunks, along with the user's query, are passed to a large language model (LLM), such as GPT-3.5 or GPT-4, to generate a coherent and contextually relevant response.
-* **Text Chunking:**
-    * Website content is divided into smaller, manageable text chunks to improve retrieval accuracy and reduce LLM processing time.
-    * Chunking strategies may vary depending on the website's structure and content.
-* **API Integration:**
-    * Integrates with OpenAI's API for embedding generation and language model interactions.
+    * ChromaDB is used to store and manage these vector representations, allowing for fast retrieval of relevant information.
+* **Response Generation:**
+    * When a user asks a question, the system retrieves the most relevant text segments from the website using vector similarity search.
+    * These segments, along with the user's question, are then used to generate a response through a large language model.
 
-**User Interaction Details:**
+**Key Features:**
 
-* **Chat Interface:**
-    * Provides a user-friendly chat interface where users can input their questions and receive answers.
-* **Website Input:**
-    * Users can provide the URL of the website they wish to interact with.
-    * The system then automatically scrapes the website's text content.
-* **Query Handling:**
-    * The system processes user queries in real-time, retrieving relevant information and generating responses.
-* **Contextual Awareness:**
-    * Attempts to maintain conversational context, allowing users to ask follow-up questions.
-* **Response Display:**
-    * Displays generated responses in a clear and concise manner within the chat interface.
+* **Direct Website Interaction:**
+    * Users can ask questions about the content of any provided website URL.
+* **Contextual Responses:**
+    * The system aims to provide answers that are directly relevant to the website's content and the user's query.
+* **Efficient Information Retrieval:**
+    * Vector databases are used to quickly find the most relevant information within the website's text.
+* **Clear Output:**
+    * Responses are designed to be easy to read and understand.
 * **Error Handling:**
-    * Provides informative error messages for invalid website URLs or other issues.
-* **Feedback Mechanism(optional):**
-    * Allows users to provide feedback on the accuracy and relevance of the generated responses.
+    * Informative error messages are provided for invalid inputs.
+
+**Technical Overview:**
+
+The system leverages OpenAI's embedding API for vector generation and a large language model for response creation. ChromaDB is used as the vector storage and retrieval mechanism. Website text is chunked to improve retrieval accuracy.
+
+**Contributions:**
+
+Contributions to this project are welcome. Please submit pull requests with any improvements or bug fixes.
